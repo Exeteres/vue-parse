@@ -13,19 +13,19 @@ export function prop() {
     };
 }
 
-export function model() {
+export function model(name: string) {
     return <T extends typeof Parse.Object>(target: T): any => {
         const original = target;
 
         var f: any = function(...args) {
             const instance = new original(...args);
-            instance.className = target.name;
+            instance.className = name;
             return instance;
         };
 
         f.prototype = original.prototype;
 
-        Parse.Object.registerSubclass(target.name, f);
+        Parse.Object.registerSubclass(name, f);
 
         return f;
     };

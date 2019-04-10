@@ -13,7 +13,7 @@ However, this can be bypassed using the `@model` and `@prop` decorators provided
 First, let's define the model. It is an ES6 class inherited from `Parse.Object`:
 
 ```ts
-@model()
+@model("Item")
 class Item extends Parse.Object {
     @prop() field: string;
 }

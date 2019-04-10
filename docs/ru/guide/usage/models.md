@@ -13,7 +13,7 @@ const value = item.get("field"); // "value"
 Для начала определим модель. Она представляет собой ES6 класс, унаследованный от `Parse.Object`:
 
 ```ts
-@model()
+@model("Item")
 class Item extends Parse.Object {
     @prop() field: string;
 }
