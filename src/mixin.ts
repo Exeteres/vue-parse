@@ -41,5 +41,9 @@ export default {
         return result;
     },
     beforeCreate: setupQueries,
-    created: launchQueries
+    created: launchQueries,
+    destroyed(this: Vue) {
+        if (!this.$parse) return;
+        this.$parse.destroy();
+    }
 };

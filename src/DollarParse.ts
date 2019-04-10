@@ -16,6 +16,10 @@ export default class DollarParse {
         });
     }
 
+    public destroy() {
+        this.reqs.forEach(x => x.destroy());
+    }
+
     public enumerate(): string[] {
         return this.reqs.map(x => x.name);
     }
