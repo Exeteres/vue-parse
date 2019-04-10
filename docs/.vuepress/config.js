@@ -1,4 +1,5 @@
 module.exports = {
+    base: "/vue-parse/",
     locales: {
         "/": {
             lang: "en-US",
