@@ -1,0 +1,54 @@
+{
+    "name": "vue-parse",
+    "version": "0.0.1",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "license": "MIT",
+    "files": [
+        "lib"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "$npm_execpath run build",
+        "test": "jest",
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    },
+    "peerDependencies": {
+        "vue": "^2.6.10"
+    },
+    "dependencies": {
+        "parse": "^2.3.2",
+        "vue": "^2.6.10"
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.11",
+        "@types/parse": "^2.2.2",
+        "@vue/test-utils": "^1.0.0-beta.29",
+        "babel-core": "^6.26.3",
+        "jest": "^24.7.1",
+        "ts-jest": "^24.0.1",
+        "typescript": "^3.4.1",
+        "vue-jest": "^3.0.4",
+        "vue-template-compiler": "^2.6.10",
+        "vuepress": "^0.14.10"
+    },
+    "jest": {
+        "roots": [
+            "<rootDir>/src"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest",
+            ".*\\.(vue)$": "vue-jest"
+        },
+        "testRegex": "/__tests__/.*(test|spec)\\.tsx?$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ]
+    }
+}

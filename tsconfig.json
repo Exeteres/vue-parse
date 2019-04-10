@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "declaration": true,
+        "outDir": "lib",
+        "rootDir": "src",
+        "esModuleInterop": true,
+        "experimentalDecorators": true
+    },
+    "include": ["src/**/*.ts", "typings/**/*.d.ts"],
+    "exclude": ["node_modules"]
+}
