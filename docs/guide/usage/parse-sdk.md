@@ -1,24 +1,28 @@
 # Parse SDK
 
-Please note that VueParse can only query information, since this is his main task.
-You should use the regular Parse SDK for other requests.
-
-For authorization and user management, Parse SDK provides the following methods:
+VueParse provides a wrapper for some commonly used methods from the Parse SDK.
+You can call them inside any component:
 
 ```js
-async Parse.User.logIn(username, password, options)
-async Parse.User.logOut()
-Parse.User.current()
+// User
+async this.$parse.logIn(username, password, options?)
+async this.$parse.logOut()
+
+// Cloud
+async this.$parse.run(name, data, options?)
+async this.$parse.getJobsData()
+async this.$parse.startJob(name, data)
+async this.$parse.getJobStatus(id)
+
+// Getters
+this.$parse.user
 ```
 
-To modify the data:
+However, you can also import missing methods from the original Parse SDK:
 
 ```js
-const Item = Parse.Object.extend("Item");
-
-const item = new Item();
-todo.set("field", "value");
-await item.save();
+import Parse from "parse";
+async Parse.User.logOut()
 ```
 
 Read more in the official manual of [Parse SDK](https://docs.parseplatform.org/js/guide/).

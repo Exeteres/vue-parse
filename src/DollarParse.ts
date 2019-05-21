@@ -1,4 +1,4 @@
-import Parse, { User } from "parse";
+import Parse from "parse";
 import ParseRequest from "./ParseRequest";
 
 export default class DollarParse {
@@ -29,7 +29,7 @@ export default class DollarParse {
     }
 
     get logIn() {
-        return Parse.User.logIn.bind(User);
+        return Parse.User.logIn.bind(Parse.User);
     }
 
     get logOut() {
@@ -38,5 +38,21 @@ export default class DollarParse {
 
     get user() {
         return Parse.User.current();
+    }
+
+    get run() {
+        return Parse.Cloud.run;
+    }
+
+    get getJobsData(): () => Promise<any> {
+        return Parse.Cloud["getJobsData"];
+    }
+
+    get startJob(): (name: string, data?: any) => Promise<string> {
+        return Parse.Cloud["startJob"];
+    }
+
+    get getJobStatus(): (id: string) => Promise<any> {
+        return Parse.Cloud["getJobStatus"];
     }
 }
