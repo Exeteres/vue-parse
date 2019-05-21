@@ -1,4 +1,4 @@
-import Parse from "parse";
+import Parse, { User } from "parse";
 import ParseRequest from "./ParseRequest";
 
 export default class DollarParse {
@@ -29,7 +29,7 @@ export default class DollarParse {
     }
 
     get logIn() {
-        return Parse.User.logIn;
+        return Parse.User.logIn.bind(User);
     }
 
     get logOut() {
