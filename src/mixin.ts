@@ -5,7 +5,10 @@ import ParseRequest from "./ParseRequest";
 
 async function setupQueries(this: Vue) {
     const parse = this.$options.parse;
-    if (!parse) return;
+    if (!parse) {
+        this.$parse = new DollarParse([]);
+        return;
+    }
 
     const reqs = [];
 
