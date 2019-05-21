@@ -22,6 +22,10 @@ module.exports = {
                         link: "/guide/"
                     },
                     {
+                        text: "Example",
+                        link: "https://exeteres.github.io/vue-parse-example"
+                    },
+                    {
                         text: "Github",
                         link: "https://github.com/exeteres/vue-parse"
                     }
@@ -49,6 +53,14 @@ module.exports = {
                     {
                         text: "Руководство",
                         link: "/ru/guide/"
+                    },
+                    {
+                        text: "Пример",
+                        link: "https://exeteres.github.io/vue-parse-example"
+                    },
+                    {
+                        text: "Github",
+                        link: "https://github.com/exeteres/vue-parse"
                     }
                 ],
                 sidebarDepth: 2,
