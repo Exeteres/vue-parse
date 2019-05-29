@@ -1,13 +1,13 @@
 # Вступление
 
-VueParse - это плагин, вдохновленный VueApollo. Он предоставляет простой способ объявлять запросы к ParseServer.
+VueParse предоставляет простой способ объявлять запросы к Parse Server.
 
 # Пример использования
 
 ```vue
 <template>
     <ul>
-        <li v-for="todo in todos" :key="todo.id">{{ todo }}</li>
+        <li v-for="todo in todos" :key="todo">{{ todo }}</li>
     </ul>
 </template>
 ```

@@ -42,6 +42,7 @@ module.exports = {
                             "/guide/usage/data-processing",
                             "/guide/usage/parse-sdk",
                             "/guide/usage/models",
+                            "/guide/usage/cloud-functions",
                             "/guide/usage/reactivity"
                         ]
                     }
@@ -75,6 +76,7 @@ module.exports = {
                             "/ru/guide/usage/data-processing",
                             "/ru/guide/usage/parse-sdk",
                             "/ru/guide/usage/models",
+                            "/ru/guide/usage/cloud-functions",
                             "/ru/guide/usage/reactivity"
                         ]
                     }

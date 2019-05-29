@@ -30,26 +30,20 @@ const install: PluginFunction<VueParseOptions> = (Vue, options) => {
     Vue.mixin(mixin);
 };
 
-interface VueParseItemTyped<T extends Parse.Object> {
-    object: new (...args: any[]) => T;
-    query?: (q: Parse.Query<T>) => Parse.Query<T>;
+interface VueParseItemTyped<V extends Vue, T extends Parse.Object> {
+    object?: new (...args: any[]) => T;
+    function?: string;
+    params?: (this: V) => any;
+    query?: (this: V, q: Parse.Query<T>) => Parse.Query<T>;
     action?: Action;
     result?: (r: T) => any;
-    subscribe?: boolean | ((this: Vue) => boolean);
+    subscribe?: boolean | ((this: V) => boolean);
 }
 
-export function extend<T extends Parse.Object>(
-    definition: () => VueParseItemTyped<T>
-): () => VueParseItem;
-
-export function extend<T extends Parse.Object>(
-    definition: VueParseItemTyped<T>
-): VueParseItem;
-
-export function extend<T extends Parse.Object>(
-    definition: VueParseItemTyped<T> | (() => VueParseItemTyped<T>)
-): VueParseItem | (() => VueParseItem) {
-    return definition;
+export function extend<V extends Vue, T extends Parse.Object = any>(
+    definition: VueParseItemTyped<V, T>
+) {
+    return definition as VueParseItem;
 }
 
 export default install;

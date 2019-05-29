@@ -2,15 +2,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { extend } from "../..";
+import { Component } from "vue-property-decorator";
 import Item from "../models/Item";
+import { extend } from "../..";
 
-export default Vue.extend({
-    data() {
-        return { regex: /1|3/ };
-    },
+@Component({
     parse: {
-        item: extend({
+        item: extend<ItemsList, Item>({
             object: Item,
             query(q) {
                 return q.matches("p", this.regex, null);
@@ -19,11 +17,25 @@ export default Vue.extend({
             action: "first",
             subscribe: true
         }),
-        items: extend({
+        items: {
             object: Item,
             action: "find",
             subscribe: true
+        },
+        numbers: {
+            function: "getTestData",
+            result: r => r * r
+        },
+        echo: extend<ItemsList>({
+            function: "echo",
+            params() {
+                return { data: this.word };
+            }
         })
     }
-});
+})
+export default class ItemsList extends Vue {
+    regex = /1|3/;
+    word = "first";
+}
 </script>

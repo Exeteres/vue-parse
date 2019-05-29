@@ -1,7 +1,8 @@
 import DollarParse from "./DollarParse";
 import Vue from "vue";
-import { VueParseItem } from "./VueParse";
-import ParseRequest from "./ParseRequest";
+import { VueParseItem, isFunction, isQuery } from "./VueParse";
+import { ParseFunction } from "./ParseFunction";
+import { ParseQuery } from "./ParseQuery";
 
 async function setupQueries(this: Vue) {
     const parse = this.$options.parse;
@@ -13,16 +14,26 @@ async function setupQueries(this: Vue) {
     const reqs = [];
 
     for (var key in parse) {
-        const item = parse[key];
-        const req = new ParseRequest({
-            vue: this,
-            name: key,
-            definition:
-                typeof item === "function"
-                    ? (item.call(this) as VueParseItem)
-                    : item
-        });
-        reqs.push(req);
+        const definition = parse[key];
+
+        if (isFunction(definition)) {
+            const req = new ParseFunction({
+                vue: this,
+                name: key,
+                definition
+            });
+            reqs.push(req);
+            continue;
+        }
+
+        if (isQuery(definition)) {
+            const req = new ParseQuery({
+                vue: this,
+                name: key,
+                definition
+            });
+            reqs.push(req);
+        }
     }
 
     this.$parse = new DollarParse(reqs);

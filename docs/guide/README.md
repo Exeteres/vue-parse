@@ -1,13 +1,13 @@
 # Introduction
 
-This library inspired by VueApollo. It's provides simple way to declare your parse requests.
+This library provides simple way to declare your parse requests.
 
 # Usage example
 
 ```html
 <template>
     <ul>
-        <li v-for="todo in todos" :key="todo.id">{{ todo }}</li>
+        <li v-for="todo in todos" :key="todo">{{ todo }}</li>
     </ul>
 </template>
 ```

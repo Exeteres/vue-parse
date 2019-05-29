@@ -1,5 +1,5 @@
 import Parse from "parse";
-import ParseRequest from "./ParseRequest";
+import { ParseRequest } from "./ParseRequest";
 
 export default class DollarParse {
     private reqs: ParseRequest[];
@@ -10,9 +10,7 @@ export default class DollarParse {
 
     public launch() {
         this.reqs.forEach(x => {
-            x.dispatch();
-            x.setupWatchers();
-            x.setupSubscription();
+            x.launch();
         });
     }
 

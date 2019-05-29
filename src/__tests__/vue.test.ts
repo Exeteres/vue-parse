@@ -50,6 +50,10 @@ test("test :)", async () => {
     expect(wrapper.vm.$data.items[0].p).toEqual("1");
     expect(wrapper.vm.$data.item).toEqual("1");
 
+    // -- Test cloud code
+    expect(wrapper.vm.$data.numbers).toEqual([1, 4, 9, 16, 25]);
+    expect(wrapper.vm.$data.echo).toEqual("first");
+
     // -- Test subscriptions
     // Create
     const second = await createItem("2");
@@ -68,8 +72,10 @@ test("test :)", async () => {
 
     // Reactivity
     wrapper.vm.$data.regex = /4/;
+    wrapper.vm.$data.word = "second";
     await wrapper.vm.$parse.wait();
     expect(wrapper.vm.$data.item).toEqual("4");
+    expect(wrapper.vm.$data.echo).toEqual("second");
 
     // Delete
     await first.destroy();
