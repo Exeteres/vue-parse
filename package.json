@@ -1,6 +1,6 @@
 {
     "name": "vue-parse",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "description": "Vue + Parse",
@@ -19,7 +19,7 @@
         "vue": "^2.6.10"
     },
     "dependencies": {
-        "parse": "^2.3.2",
+        "parse": "2.4.0",
         "vue": "^2.6.10"
     },
     "devDependencies": {

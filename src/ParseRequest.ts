@@ -1,4 +1,4 @@
-import { Object, Query } from "parse";
+import { Object } from "parse";
 import { VueParseItem } from "./VueParse";
 import Vue from "vue";
 
