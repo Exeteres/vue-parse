@@ -10,7 +10,7 @@
     ],
     "scripts": {
         "build": "tsc",
-        "prepublishOnly": "$npm_execpath run build",
+        "prepublishOnly": "yarn build",
         "test": "jest",
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs"

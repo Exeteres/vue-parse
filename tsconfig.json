@@ -9,5 +9,5 @@
         "experimentalDecorators": true
     },
     "include": ["src/**/*.ts", "typings/**/*.d.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "src/__tests__/**/*.ts"]
 }
